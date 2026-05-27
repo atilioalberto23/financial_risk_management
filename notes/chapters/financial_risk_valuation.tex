@@ -1,124 +1,350 @@
-\chapter{}
+\chapter{Financial Risk Valuation}
 
-\section{}
+\section{Introducción al Riesgo Financiero}
 
-Como se mide y limita el riesgo financiero
+El riesgo financiero representa la posibilidad de que una organización experimente pérdidas derivadas de movimientos adversos en variables de mercado tales como tasas de interés, precios de activos, volatilidad, liquidez o deterioro en la confianza de los inversionistas.
 
-Comprender como el riesgo financiero afecta decisiones, liquidez y estabilidad organizacional.
-Analizar herramientas basicas de meidcion y control del riesgo financiero.
+Desde una perspectiva corporativa, el riesgo financiero no solamente afecta la rentabilidad esperada de una institución, sino también su estabilidad operativa, capacidad de financiamiento y continuidad bajo escenarios de estrés.
 
-Roadmap de la clase:
-1. Riesgo financiero y vulnerabilidad
-2. Volatilidad (desviacion estandar de los rendimientos logaritmicos), correlacion y perdida potencial.
-3. Valoracion y medicion del riesgo.
-4. Limitaciones y gestion bajo estres.
+\vspace{0.3cm}
 
-Durante estres financiero se quiere el activo de menor voltailidad. A pesar de menor retorno, hay menos riesgo.
-Cuando tasa de interes bajas, los niveles de voltaitlidad son bajos, y por lo tanto, inversionistas se arriesgan por activos ligeramente mas altos, para un mayor retorno.
+\textbf{Objetivos de la sesión}
 
-Caso Sillicon Valley Bank 2023.
+\begin{itemize}
+    \item Comprender cómo el riesgo financiero afecta las decisiones de inversión, liquidez y estabilidad organizacional.
+    \item Analizar herramientas básicas de medición y control del riesgo financiero.
+    \item Evaluar las limitaciones de los modelos tradicionales bajo escenarios extremos de mercado.
+\end{itemize}
 
-Contexto
-1. Crecimiento de depositos
-2. Alta concentracion de tecnologia
-3. Fuerte exposiion a bonos largos. --> Como las tasas de interes eran bajas, requerian inversiones a largo plazo para rentabilidad
+\vspace{0.3cm}
 
-* los bonos los clasificaban con costo amortizado. los bonos pueden ser contra resultados o contra resultados integrales. La otra es costo amortizado, donde todos los dias se amortiza diferencia entre lo que pago y amortizo.
+\textbf{Roadmap de la clase}
 
-Shock
-1. Aumento brusco de tasas --> Se retiraba inversion, despidiendo personal, el cual a su vez retiraban su dinero.
-2. Caida en bonos --> Al aumentar las tasas de interes
-3. Perdidas no realizadas
+\begin{enumerate}
+    \item Riesgo financiero y vulnerabilidad.
+    \item Volatilidad, correlación y pérdida potencial.
+    \item Valoración y medición del riesgo.
+    \item Limitaciones de los modelos y gestión bajo estrés financiero.
+\end{enumerate}
 
-Consecuencias
-1. Salida masiva de depositos
-2. Presion de liquidez
-3. Perdida de confianza.
+\section{Riesgo Financiero y Vulnerabilidad}
 
-Cuando quieres incentivar actividad economica las tasas de interes bajas.
+En términos generales, los inversionistas buscan maximizar retorno ajustado por riesgo. Sin embargo, durante períodos de estrés financiero, el comportamiento cambia drásticamente: los agentes económicos priorizan preservación de capital y liquidez sobre rentabilidad.
 
-Sillicon Valley Bank tenia activos considerados "seguros"
-Sin embargo, peque3nos cambios en tasas de interes generaron grandes perdidas de valor
-Como medimos la sensibilidad y variabilidad de los retornos.
+En consecuencia, activos de menor volatilidad tienden a ser preferidos aun cuando generen retornos esperados inferiores.
 
-A traves del rendimientos, la volatilidad y el riesgo.
+\begin{quote}
+Durante episodios de crisis, el mercado deja de recompensar agresivamente el retorno y comienza a valorar la supervivencia financiera.
+\end{quote}
 
+Adicionalmente, cuando las tasas de interés permanecen bajas durante períodos prolongados, la volatilidad del mercado suele reducirse. Bajo este entorno, los inversionistas incrementan gradualmente su apetito por riesgo buscando activos ligeramente más rentables.
 
+Este fenómeno genera acumulación de vulnerabilidades sistémicas.
 
-Investigar costo amortizada y evitamiento de perdida de patrimonio
+\section{Caso Silicon Valley Bank (2023)}
 
+\subsection{Contexto}
 
-Correlacion y diversificacion
+El caso de Silicon Valley Bank (SVB) representa uno de los ejemplos más relevantes de riesgo de tasas de interés y riesgo de liquidez en años recientes.
 
-$$\rho_{XY} = \frac{Cov(X,Y)}{\sigma_x\sigma_y}$$
+La institución experimentó:
 
-La correlacion mide como se mueven los activos entre si.
-La diversificacion funciona cuando las correlaciones son bajas o negativas entre si.
+\begin{enumerate}
+    \item Crecimiento acelerado de depósitos.
+    \item Alta concentración de clientes del sector tecnológico.
+    \item Fuerte exposición a bonos de largo plazo.
+\end{enumerate}
 
+Durante el período de tasas bajas, SVB invirtió una proporción significativa de sus recursos en bonos del Tesoro y títulos hipotecarios de larga duración para incrementar rentabilidad.
 
+\subsection{Clasificación Contable de los Bonos}
 
-La diversificacion reduce riesgo en condiciones normales.
-Bajo estres, las correlaciones tienden a aumentar
-Activos que parecian independientes pueden caer simultaneamente
-Las crisis financieras suelen amplificar contagio y voltatilidad
+Muchos de estos activos fueron clasificados bajo la categoría de \textit{Held to Maturity} (HTM), es decir, mantenidos hasta vencimiento y registrados a costo amortizado.
 
-La diversificacion elimina riesgo o solo reduce vulnerabilidades.
-La voltatilidad y la correlacion afectan la estabilidad del portafolio.
+El costo amortizado refleja el valor del instrumento ajustado progresivamente por:
 
-bajo estres, las relaciones historicas entre activos pueden cambiar rapidamente. El riesgo financiero se vuelve critico cuando afecta liquidez, confianza y continuidad.
+\begin{itemize}
+    \item Amortización de primas o descuentos.
+    \item Devengo de intereses.
+    \item Valor temporal del dinero.
+\end{itemize}
 
-la medicion del riesgo permite evaluar vulnerabildiad, sensibilidad y exposicion financiera..
+\begin{tcolorbox}[colback=gray!8,colframe=black,title=Nota Técnica]
+Cuando un bono se registra a costo amortizado, las pérdidas derivadas de cambios de precio de mercado no impactan inmediatamente el estado de resultados mientras el activo no sea vendido.
+\end{tcolorbox}
 
-El VaR combina: volatilidad, sensibilidad y probabilidad
-El poblema aparece cuando el mercado deja de comportarse normalmente.
+Formalmente:
 
-El VaR funciona bajo supuesto de comportamiento "normal".
-Las crisis financieras suelen romper: correlaciones, volatilidades y patrones historicos.
-Eventos extremos pueden generar perdidas superiores a las estimadas por el modelo .
+\[
+Costo\ Amortizado = Valor\ Inicial + Intereses - Amortizaciones
+\]
 
-Stress testing y escenarios
-Las instituciones financieras utilizan escenarios extremos para evaluar vulnerabilidades
+\subsection{Shock Financiero}
 
-La incertidumbre puede alterar rapidamente el comportamiento del mercado.
-la gestion del riesgo requiere metricas, juicio, liquidez y capacidad de adaptacion.
+El deterioro comenzó cuando la Reserva Federal incrementó agresivamente las tasas de interés para controlar inflación.
 
-Los modelos estiman riesgo
-La resiliencia determina quien sobrevive.
+Esto produjo:
 
-Riesgo y retorno no pueden analizarse de manera aislada
-La volatilidad y la correlacion afetctan la estabilidad financiera.
-Los modelos ayudan a estimar perdidas pero no eliminan incertidumbre.
-Bajo estres, la resiliencia y la capacidad de respuesta se vuelven mas importantes que las proyecciones estadisticas.
+\begin{enumerate}
+    \item Aumento abrupto de tasas de interés.
+    \item Caída significativa en el precio de los bonos.
+    \item Aparición de pérdidas no realizadas.
+\end{enumerate}
 
+Existe una relación inversa entre precio y tasa de interés:
 
+\[
+P = \sum_{t=1}^{n}\frac{CF_t}{(1+r)^t}
+\]
 
-Modelo de media varianza
+donde:
 
-Roadmap.
+\begin{itemize}
+    \item $P$ = precio del bono.
+    \item $CF_t$ = flujo de caja en el período $t$.
+    \item $r$ = tasa de descuento.
+\end{itemize}
 
-1. Retorno esperado y riesgo de cartera
-2. DIversificacion y efecto de la correlacion
-3. Construccion de portafolios eficientes
-4. Seleccion optima y limitaciones del modelo media-varianza
+A medida que $r$ aumenta, el valor presente de los flujos disminuye y el precio del bono cae.
 
-Objetivo
-1. COmprenser como se construye el retorno esperado
-2. Comprender el modelo de media-varianza
+\subsection{Consecuencias}
 
-El problema no es escoger el mejor activo, es construir la cartera a partir de la correlacin.
+La situación derivó en:
 
-El retorno de una cartera es la esperanza matematica del retorno de los activos de una cartera
+\begin{enumerate}
+    \item Salida masiva de depósitos.
+    \item Presión severa de liquidez.
+    \item Pérdida de confianza del mercado.
+\end{enumerate}
 
-Portafolios eficientes y frontera eficiente
+El caso evidenció que incluso activos considerados ``seguros'' pueden generar pérdidas importantes cuando existe sensibilidad elevada a tasas de interés.
 
-DIstintas combinaciones generan ddistintso perfiles riesgo-retorno. Algunas carteras ofrecen mayor retorno para mismo nivel de riesgo.
-Otras carteras minimizan riesgo para un mismo retorno.Algunas combinaciones destruyen efciencia financiera.
+\begin{tcolorbox}[colback=red!5,colframe=red!60!black,title=Insight de Riesgo]
+El problema principal de SVB no fue exclusivamente crediticio. Fue una combinación de riesgo de duración, concentración sectorial y crisis de liquidez.
+\end{tcolorbox}
 
+\section{Volatilidad y Rendimientos}
 
-Retorno ajustado por riesgo
+La volatilidad representa la dispersión de los retornos alrededor de su media y constituye una de las medidas fundamentales de riesgo financiero.
 
-$$Sharpe = (R_p-R_f)/\sigma$$
+Los rendimientos logarítmicos suelen utilizarse debido a sus propiedades estadísticas:
 
-La cartera reemplazo al activo individual como unidad central de analisis. La diversificacion se convirtio en un problema de optimizacion
+\[
+r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
+\]
 
-EL problema financiero no es encontrar al activo perfecto. Es construir una cartera capaz de resistir a distintos escenarios de mercado.
+donde:
+
+\begin{itemize}
+    \item $P_t$ = precio actual.
+    \item $P_{t-1}$ = precio anterior.
+\end{itemize}
+
+La volatilidad se aproxima mediante la desviación estándar:
+
+\[
+\sigma = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(r_i-\bar r)^2}
+\]
+
+Una mayor volatilidad implica mayor incertidumbre sobre el comportamiento futuro del activo.
+
+\section{Correlación y Diversificación}
+
+La correlación mide cómo se mueven dos activos entre sí.
+
+\[
+\rho_{XY} = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}
+\]
+
+donde:
+
+\begin{itemize}
+    \item $\rho_{XY}$ = correlación entre activos.
+    \item $Cov(X,Y)$ = covarianza.
+    \item $\sigma_X, \sigma_Y$ = volatilidades individuales.
+\end{itemize}
+
+\subsection{Interpretación}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Correlación & Interpretación \\
+\hline
+$\rho = 1$ & Movimiento perfectamente conjunto \\
+$\rho = 0$ & Independencia lineal \\
+$\rho = -1$ & Movimiento perfectamente inverso \\
+\hline
+\end{tabular}
+\end{center}
+
+La diversificación funciona principalmente cuando las correlaciones son bajas o negativas.
+
+\begin{tcolorbox}[colback=blue!5,colframe=blue!60!black,title=Observación]
+La diversificación no elimina completamente el riesgo; reduce vulnerabilidades bajo condiciones normales de mercado.
+\end{tcolorbox}
+
+Sin embargo, durante crisis financieras:
+
+\begin{itemize}
+    \item Las correlaciones tienden a aumentar.
+    \item Los activos comienzan a caer simultáneamente.
+    \item Se amplifica el contagio financiero.
+\end{itemize}
+
+En escenarios extremos, las relaciones históricas entre activos pueden cambiar rápidamente.
+
+\section{Value at Risk (VaR)}
+
+El \textit{Value at Risk} (VaR) busca estimar la pérdida máxima esperada bajo un nivel de confianza específico.
+
+Formalmente:
+
+\[
+VaR_{\alpha} = \mu - z_{\alpha}\sigma
+\]
+
+donde:
+
+\begin{itemize}
+    \item $\mu$ = retorno esperado.
+    \item $\sigma$ = volatilidad.
+    \item $z_{\alpha}$ = cuantil asociado al nivel de confianza.
+\end{itemize}
+
+El VaR combina:
+
+\begin{itemize}
+    \item Volatilidad.
+    \item Sensibilidad.
+    \item Probabilidad estadística.
+\end{itemize}
+
+\subsection{Limitaciones}
+
+El principal problema aparece cuando el mercado deja de comportarse normalmente.
+
+\begin{tcolorbox}[colback=yellow!10,colframe=black,title=Limitación Fundamental]
+El VaR supone estabilidad estadística y distribuciones relativamente normales. Las crisis financieras suelen romper correlaciones, volatilidades y patrones históricos.
+\end{tcolorbox}
+
+Eventos extremos pueden generar pérdidas considerablemente superiores a las estimadas por el modelo.
+
+\section{Stress Testing y Escenarios}
+
+Las instituciones financieras complementan métricas tradicionales mediante pruebas de estrés (\textit{stress testing}).
+
+Estas simulaciones evalúan:
+
+\begin{itemize}
+    \item Crisis de liquidez.
+    \item Incrementos abruptos de tasas.
+    \item Colapsos bursátiles.
+    \item Eventos macroeconómicos extremos.
+\end{itemize}
+
+\begin{quote}
+Los modelos estiman riesgo. La resiliencia determina quién sobrevive.
+\end{quote}
+
+La gestión moderna del riesgo requiere:
+
+\begin{itemize}
+    \item Métricas cuantitativas.
+    \item Juicio profesional.
+    \item Liquidez.
+    \item Capacidad de adaptación.
+\end{itemize}
+
+\section{Modelo Media-Varianza}
+
+\subsection{Roadmap}
+
+\begin{enumerate}
+    \item Retorno esperado y riesgo de cartera.
+    \item Diversificación y efecto de la correlación.
+    \item Construcción de portafolios eficientes.
+    \item Selección óptima y limitaciones del modelo.
+\end{enumerate}
+
+\subsection{Objetivos}
+
+\begin{itemize}
+    \item Comprender cómo se construye el retorno esperado de una cartera.
+    \item Comprender el modelo de media-varianza de Markowitz.
+\end{itemize}
+
+\begin{quote}
+El problema financiero no es escoger el mejor activo individual. Es construir una cartera robusta a través de la correlación y la diversificación.
+\end{quote}
+
+\section{Retorno Esperado de una Cartera}
+
+El retorno esperado de un portafolio corresponde a la esperanza matemática ponderada de los retornos individuales:
+
+\[
+E(R_p)=\sum_{i=1}^{n} w_i E(R_i)
+\]
+
+donde:
+
+\begin{itemize}
+    \item $w_i$ = peso del activo.
+    \item $E(R_i)$ = retorno esperado individual.
+\end{itemize}
+
+El riesgo total del portafolio depende no solamente de las volatilidades individuales, sino también de las correlaciones.
+
+Para dos activos:
+
+\[
+\sigma_p^2 = w_1^2\sigma_1^2 + w_2^2\sigma_2^2 + 2w_1w_2\rho_{12}\sigma_1\sigma_2
+\]
+
+\section{Frontera Eficiente}
+
+Diferentes combinaciones generan distintos perfiles riesgo-retorno.
+
+\begin{itemize}
+    \item Algunas carteras ofrecen mayor retorno para el mismo nivel de riesgo.
+    \item Otras minimizan riesgo para un retorno determinado.
+    \item Algunas combinaciones destruyen eficiencia financiera.
+\end{itemize}
+
+La frontera eficiente representa el conjunto de carteras óptimas.
+
+\begin{tcolorbox}[colback=green!5,colframe=green!50!black,title=Idea Central]
+La diversificación transformó el problema financiero desde la selección individual de activos hacia un problema de optimización matemática.
+\end{tcolorbox}
+
+\section{Retorno Ajustado por Riesgo}
+
+Uno de los indicadores más utilizados es el ratio de Sharpe:
+
+\[
+Sharpe = \frac{R_p-R_f}{\sigma_p}
+\]
+
+donde:
+
+\begin{itemize}
+    \item $R_p$ = retorno del portafolio.
+    \item $R_f$ = tasa libre de riesgo.
+    \item $\sigma_p$ = volatilidad del portafolio.
+\end{itemize}
+
+Este indicador mide cuánto retorno adicional genera una cartera por unidad de riesgo asumido.
+
+\section{Reflexión Final}
+
+Riesgo y retorno no pueden analizarse de manera aislada.
+
+La volatilidad, la correlación y la liquidez determinan conjuntamente la estabilidad financiera de una organización.
+
+Los modelos cuantitativos ayudan a estimar pérdidas potenciales; sin embargo, no eliminan la incertidumbre inherente a los mercados.
+
+Bajo escenarios de estrés, la resiliencia institucional y la capacidad de respuesta operativa suelen ser más importantes que las proyecciones estadísticas.
+
+\begin{quote}
+El problema financiero no es encontrar el activo perfecto. Es construir una cartera capaz de sobrevivir a distintos escenarios de mercado.
+\end{quote}
